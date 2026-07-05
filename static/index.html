@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    <title>AI Fraud Shield | Multi-Agent Scam Detection Coordinator</title>
+    <meta name="description" content="AI Fraud Shield is a multi-agent cybersecurity orchestrator that dynamically routes and analyzes phishing emails, scam WhatsApp messages, malicious URLs, fake job offers, and financial fraud through specialized AI sub-agents.">
+    <meta name="keywords" content="AI fraud detection, scam detection, phishing, cybersecurity, multi-agent, fraud shield">
+    <meta property="og:title" content="AI Fraud Shield – Multi-Agent Scam Coordinator">
+    <meta property="og:description" content="Analyze suspicious emails, messages, and URLs with specialized AI security agents.">
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dark-theme">
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div class="logo-text">
+                    <h2>FraudShield</h2>
+                    <span>Coordinator Agent v1.0</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <a href="#home" class="menu-item active" id="nav-home">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Dashboard Home</span>
+                </a>
+                <a href="#detection" class="menu-item" id="nav-detection">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    <span>Fraud Detection</span>
+                </a>
+                <a href="#scenarios" class="menu-item" id="nav-scenarios">
+                    <i class="fa-solid fa-vials"></i>
+                    <span>Scenario Testing</span>
+                </a>
+                <a href="#analytics" class="menu-item" id="nav-analytics">
+                    <i class="fa-solid fa-square-poll-vertical"></i>
+                    <span>Results Dashboard</span>
+                </a>
+                <a href="#logs" class="menu-item" id="nav-logs">
+                    <i class="fa-solid fa-terminal"></i>
+                    <span>System Logs</span>
+                    <span class="badge badge-info" id="logs-count">0</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="system-status">
+                    <span class="status-dot online"></span>
+                    <span>Coordinator Engine Active</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="header-title">
+                    <h1 id="page-title">Dashboard Overview</h1>
+                    <p id="page-subtitle">Multi-Agent Orchestration & Threat Intelligence</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-secondary btn-icon" id="btn-refresh-dashboard" title="Refresh Dashboard Stats">
+                        <i class="fa-solid fa-rotate"></i>
+                    </button>
+                    <div class="user-profile">
+                        <div class="avatar"><i class="fa-solid fa-user-shield"></i></div>
+                        <span>Security Analyst</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Container (Dynamic Panels) -->
+            <div class="content-body">
+                
+                <!-- HOME PAGE -->
+                <section id="panel-home" class="panel active">
+                    <div class="welcome-banner">
+                        <div class="banner-content">
+                            <h2>Welcome to AI Fraud Shield Coordinator</h2>
+                            <p>An advanced multi-agent orchestrator that dynamically routes, analyzes, and consolidates risk assessments from specialized scam-detection units. Run individual scenarios or enter custom messages to evaluate threats.</p>
+                        </div>
+                        <div class="banner-visual">
+                            <i class="fa-solid fa-microchip-ai animate-pulse"></i>
+                        </div>
+                    </div>
+
+                    <!-- Statistics Grid -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon bg-primary"><i class="fa-solid fa-network-wired"></i></div>
+                            <div class="stat-info">
+                                <h3>Sub-Agents Active</h3>
+                                <div class="stat-value" id="stat-agents-count">7</div>
+                                <p class="stat-desc">Specialized AI units</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon bg-warning"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                            <div class="stat-info">
+                                <h3>Total Queries Run</h3>
+                                <div class="stat-value" id="stat-queries-count">0</div>
+                                <p class="stat-desc">This session</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon bg-danger"><i class="fa-solid fa-skull-crossbones"></i></div>
+                            <div class="stat-info">
+                                <h3>High Threats Blocked</h3>
+                                <div class="stat-value" id="stat-threats-count">0</div>
+                                <p class="stat-desc">Risk: High/Critical</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon bg-success"><i class="fa-solid fa-gauge-high"></i></div>
+                            <div class="stat-info">
+                                <h3>Average Confidence</h3>
+                                <div class="stat-value" id="stat-avg-confidence">0.0%</div>
+                                <p class="stat-desc">Overall evaluation</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- System Architecture and Agents List -->
+                    <div class="grid-2-1">
+                        <div class="card card-glow">
+                            <div class="card-header">
+                                <h3><i class="fa-solid fa-gears icon-accent"></i> Orchestration Flow</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="flowchart-container">
+                                    <div class="flow-node node-start">
+                                        <i class="fa-solid fa-file-signature"></i>
+                                        <span>User Request</span>
+                                    </div>
+                                    <div class="flow-arrow"><i class="fa-solid fa-angles-right"></i></div>
+                                    <div class="flow-node node-coordinator">
+                                        <i class="fa-solid fa-shield-halved"></i>
+                                        <span>Coordinator Agent</span>
+                                    </div>
+                                    <div class="flow-arrow"><i class="fa-solid fa-angles-right"></i></div>
+                                    <div class="flow-node node-router">
+                                        <i class="fa-solid fa-route"></i>
+                                        <span>Dynamic Router</span>
+                                    </div>
+                                    <div class="flow-arrow"><i class="fa-solid fa-angles-right"></i></div>
+                                    <div class="flow-node node-subagents">
+                                        <i class="fa-solid fa-people-group"></i>
+                                        <span>7 Sub-Agents</span>
+                                    </div>
+                                    <div class="flow-arrow"><i class="fa-solid fa-angles-right"></i></div>
+                                    <div class="flow-node node-aggregator">
+                                        <i class="fa-solid fa-object-group"></i>
+                                        <span>Aggregator Unit</span>
+                                    </div>
+                                </div>
+                                <p class="flow-text">
+                                    The Coordinator Agent serves as the central gateway. It maps inputs using standard Pydantic validation and routes queries dynamically to one or more specialized sub-agents based on the threat landscape. A robust consensus and ranking algorithm compiles the final risk scoring.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><i class="fa-solid fa-network-wired icon-accent"></i> Registered Agents</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="agents-small-list" id="agents-list-overview">
+                                    <!-- Rendered dynamically -->
+                                    <div class="loading-spinner-small"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FRAUD DETECTION & CUSTOM QUERY -->
+                <section id="panel-detection" class="panel">
+                    <div class="grid-1-1">
+                        <!-- Left Panel: Input -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><i class="fa-solid fa-pen-to-square icon-accent"></i> Threat Analysis Input</h3>
+                            </div>
+                            <div class="card-body">
+                                <form id="form-fraud-detection">
+                                    <div class="form-group">
+                                        <label for="detection-input-text">Suspicious Text, Email, URL or Message:</label>
+                                        <textarea id="detection-input-text" rows="8" placeholder="Paste the suspicious content here (e.g., job emails, bank verification links, or urgent SMS messages)..." required></textarea>
+                                    </div>
+
+                                    <!-- Advanced Agent Override Option -->
+                                    <div class="form-group">
+                                        <div class="collapsible-header" id="toggle-advanced-options">
+                                            <i class="fa-solid fa-chevron-right"></i>
+                                            <span>Manual Sub-Agent Override (Advanced)</span>
+                                        </div>
+                                        <div class="collapsible-body" id="advanced-options-body">
+                                            <p class="field-help-text">Leave unchecked to let the Coordinator auto-route the query dynamically.</p>
+                                            <div class="agent-checkboxes-grid" id="agent-checkboxes-container">
+                                                <!-- Populated dynamically -->
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-actions">
+                                        <button type="button" class="btn btn-secondary" id="btn-clear-detection">Clear</button>
+                                        <button type="submit" class="btn btn-primary btn-glowing" id="btn-submit-detection">
+                                            <i class="fa-solid fa-magnifying-glass-shield"></i>
+                                            <span>Run Shield Check</span>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Right Panel: Results Display -->
+                        <div class="card card-glow" id="detection-result-container">
+                            <div class="card-header justify-between">
+                                <h3><i class="fa-solid fa-circle-nodes icon-accent"></i> Coordinator Verdict</h3>
+                                <div class="risk-badge" id="verdict-risk-badge">AWAITING INPUT</div>
+                            </div>
+                            <div class="card-body result-placeholder-state" id="detection-result-placeholder">
+                                <div class="placeholder-content">
+                                    <i class="fa-solid fa-shield-halved shield-pulse"></i>
+                                    <h4>Shield Standby</h4>
+                                    <p>Submit content on the left to initiate the Multi-Agent threat scan.</p>
+                                </div>
+                            </div>
+                            <div class="card-body result-loading-state hidden" id="detection-result-loading">
+                                <div class="loader-wrapper">
+                                    <div class="cyber-scanner"></div>
+                                    <h4 class="loading-status-text" id="scanner-status">Analyzing threat vectors...</h4>
+                                    <p>Invoking routing engine and security agents</p>
+                                </div>
+                            </div>
+                            <div class="card-body result-content-state hidden" id="detection-result-content">
+                                <!-- Dynamic assessments -->
+                                <div class="verdict-summary">
+                                    <div class="verdict-row">
+                                        <span class="label">Classified Category:</span>
+                                        <span class="value badge badge-info text-uppercase" id="verdict-category">Email</span>
+                                    </div>
+                                    <div class="verdict-row">
+                                        <span class="label">Analysis Status:</span>
+                                        <span class="value text-success" id="verdict-status">Success</span>
+                                    </div>
+                                    <div class="verdict-row">
+                                        <span class="label">Orchestration Decision:</span>
+                                        <span class="value" id="verdict-agents-used">3 Agents Executed</span>
+                                    </div>
+                                </div>
+
+                                <div class="verdict-recommendation-card">
+                                    <div class="card-alert-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                                    <div class="card-alert-body">
+                                        <h5>Primary Advisory Recommendation</h5>
+                                        <p id="verdict-recommendation">Advisory text goes here...</p>
+                                    </div>
+                                </div>
+
+                                <div class="next-steps-container">
+                                    <h5>Actionable Next Steps</h5>
+                                    <ul id="verdict-next-steps" class="custom-list-checks">
+                                        <!-- Rendered dynamically -->
+                                    </ul>
+                                </div>
+
+                                <div class="sub-agent-details-section">
+                                    <h5>Sub-Agent Analyses Breakdown</h5>
+                                    <div class="agent-cards-container" id="verdict-sub-agent-cards">
+                                        <!-- Agent evaluations cards populated dynamically -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SCENARIO TESTING PAGE -->
+                <section id="panel-scenarios" class="panel">
+                    <div class="scenarios-intro">
+                        <h3><i class="fa-solid fa-vials icon-accent"></i> Capstone Scenario Harness</h3>
+                        <p>Verify system performance against the 7 pre-configured test scenarios. You can run individual scenarios to see step-by-step executions, or run all of them at once to check aggregate stats.</p>
+                        <div class="scenarios-actions">
+                            <button class="btn btn-primary btn-glowing" id="btn-run-all-scenarios">
+                                <i class="fa-solid fa-play"></i> Run All 7 Scenarios
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Individual Scenarios Grid -->
+                    <div class="scenarios-grid" id="scenarios-grid-container">
+                        <!-- Loaded dynamically -->
+                    </div>
+
+                    <!-- Batch Run Progress/Results Drawer -->
+                    <div class="card hidden margin-top-lg" id="batch-results-card">
+                        <div class="card-header justify-between">
+                            <h3><i class="fa-solid fa-list-check icon-accent"></i> Batch Scenarios Report</h3>
+                            <button class="btn btn-secondary btn-small" id="btn-close-batch-report">Close</button>
+                        </div>
+                        <div class="card-body">
+                            <div class="batch-progress-bar">
+                                <div class="progress-fill" id="batch-progress-fill" style="width: 0%;"></div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table" id="batch-results-table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Scenario Test Text</th>
+                                            <th>Routed Category</th>
+                                            <th>Overall Risk</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="batch-results-tbody">
+                                        <!-- Populated dynamically -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- RESULTS DASHBOARD -->
+                <section id="panel-analytics" class="panel">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-info">
+                                <h3>Total Run Cases</h3>
+                                <div class="stat-value" id="anal-total-runs">0</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-info">
+                                <h3>Critical Threats</h3>
+                                <div class="stat-value text-critical" id="anal-critical-runs">0</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-info">
+                                <h3>High Threats</h3>
+                                <div class="stat-value text-high" id="anal-high-runs">0</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-info">
+                                <h3>Medium & Low</h3>
+                                <div class="stat-value text-safe" id="anal-safe-runs">0</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-2-1">
+                        <!-- Historical log table -->
+                        <div class="card">
+                            <div class="card-header justify-between">
+                                <h3><i class="fa-solid fa-clock-rotate-left icon-accent"></i> Query Analysis History</h3>
+                                <button class="btn btn-secondary btn-small" id="btn-clear-history">Clear History</button>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table" id="history-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Time</th>
+                                                <th>Query Snippet</th>
+                                                <th>Category</th>
+                                                <th>Verdict</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="history-tbody">
+                                            <tr>
+                                                <td colspan="5" class="text-center text-muted">No runs registered in this session. Go to Fraud Detection to run.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Risk Breakdown Card -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><i class="fa-solid fa-chart-pie icon-accent"></i> Risk Severity Distribution</h3>
+                            </div>
+                            <div class="card-body flex-column flex-center">
+                                <div class="distribution-chart-wrapper">
+                                    <!-- Dynamic Progress Rings / Breakdown representation -->
+                                    <div class="risk-dist-bar-item">
+                                        <div class="dist-label">
+                                            <span>CRITICAL</span>
+                                            <span id="dist-critical-pct">0%</span>
+                                        </div>
+                                        <div class="dist-track"><div class="dist-fill bg-critical" id="dist-critical-fill" style="width: 0%"></div></div>
+                                    </div>
+                                    <div class="risk-dist-bar-item">
+                                        <div class="dist-label">
+                                            <span>HIGH</span>
+                                            <span id="dist-high-pct">0%</span>
+                                        </div>
+                                        <div class="dist-track"><div class="dist-fill bg-high" id="dist-high-fill" style="width: 0%"></div></div>
+                                    </div>
+                                    <div class="risk-dist-bar-item">
+                                        <div class="dist-label">
+                                            <span>MEDIUM</span>
+                                            <span id="dist-medium-pct">0%</span>
+                                        </div>
+                                        <div class="dist-track"><div class="dist-fill bg-medium" id="dist-medium-fill" style="width: 0%"></div></div>
+                                    </div>
+                                    <div class="risk-dist-bar-item">
+                                        <div class="dist-label">
+                                            <span>LOW</span>
+                                            <span id="dist-low-pct">0%</span>
+                                        </div>
+                                        <div class="dist-track"><div class="dist-fill bg-low" id="dist-low-fill" style="width: 0%"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SYSTEM LOGS PAGE -->
+                <section id="panel-logs" class="panel">
+                    <div class="card card-glow font-mono flex-column flex-grow">
+                        <div class="card-header justify-between align-center flex-wrap">
+                            <div class="flex align-center gap-md">
+                                <h3><i class="fa-solid fa-rectangle-list icon-accent"></i> Backend Logs Terminal</h3>
+                                <span class="status-dot online animate-pulse"></span>
+                                <span class="text-muted text-sm font-sans" id="logs-status-text">Connected</span>
+                            </div>
+                            <div class="flex gap-sm align-center">
+                                <label for="logs-level-filter" class="font-sans text-sm">Level:</label>
+                                <select id="logs-level-filter" class="form-control form-control-sm font-sans">
+                                    <option value="all">ALL LEVELS</option>
+                                    <option value="info">INFO</option>
+                                    <option value="warning">WARNING</option>
+                                    <option value="error">ERROR</option>
+                                </select>
+                                <button class="btn btn-secondary btn-small font-sans" id="btn-clear-logs">Clear Logs</button>
+                                <button class="btn btn-secondary btn-small font-sans" id="btn-toggle-logs-scroll" title="Toggle Auto-Scroll">
+                                    <i class="fa-solid fa-arrow-down"></i> Auto-Scroll
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body logs-console" id="logs-console-body">
+                            <!-- Logs lines rendered dynamically -->
+                            <div class="log-line text-muted">[SYSTEM] Initializing console observer. Listening to FastAPI logs...</div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Alert Modal / Message Banner -->
+    <div class="toast-container" id="toast-container"></div>
+    <script src="js/app.js"></script>
+</body>
+</html>
