@@ -357,9 +357,9 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 ---
 
-## 🙏 Acknowledgements
+##  Acknowledgements
 
-- Built as part of the **Infosys Springboard Virtual Internship Program 7.0**
+- Built as part of the **Google & Kaggle Hackathon Program**
 - Powered by [Google Agent Development Kit (ADK)](https://google.github.io/adk-docs/)
 - Backend: [FastAPI](https://fastapi.tiangolo.com/) + [Uvicorn](https://www.uvicorn.org/)
 - Data validation: [Pydantic v2](https://docs.pydantic.dev/)
