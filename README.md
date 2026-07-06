@@ -1,4 +1,4 @@
-﻿<div align="center">
+<div align="center">
 
 <img src="docs/images/banner.png" alt="AI Fraud Shield Banner" width="100%"/>
 
@@ -27,6 +27,7 @@
 - [🏗️ Architecture](#️-architecture)
 - [🤖 Sub-Agents](#-sub-agents)
 - [🌐 Web Dashboard](#-web-dashboard)
+  - [📸 Screenshots](#-screenshots)
 - [🚀 Quick Start](#-quick-start)
 - [🐳 Docker Deployment](#-docker-deployment)
 - [🔌 API Reference](#-api-reference)
@@ -123,6 +124,28 @@ The project includes a fully-featured single-page application (SPA) dashboard.
 | 🎯 **Scenario Tester** | 7 pre-built capstone scenarios with one-click execution |
 | 📈 **Analytics Hub** | Risk distribution charts, run history, confidence metrics |
 | 📋 **System Logs** | Live-streaming backend log console with level filtering |
+
+### 📸 Screenshots
+
+<div align="center">
+
+**Dashboard Home** — System overview with agent status and metrics
+
+<img src="docs/images/screenshots/01_dashboard_home.png" alt="Dashboard Home" width="100%"/>
+
+---
+
+**Fraud Detection** — Real-time analysis with per-agent results
+
+<img src="docs/images/screenshots/02_fraud_detection_results.png" alt="Fraud Detection Results" width="100%"/>
+
+---
+
+**Scenario Tester** — 7 pre-built capstone fraud scenarios
+
+<img src="docs/images/screenshots/03_scenario_tester.png" alt="Scenario Tester" width="100%"/>
+
+</div>
 
 ---
 
