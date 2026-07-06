@@ -27,7 +27,7 @@
 - [🏗️ Architecture](#️-architecture)
 - [🤖 Sub-Agents](#-sub-agents)
 - [🌐 Web Dashboard](#-web-dashboard)
-  - [📸 Screenshots](#-screenshots)
+- [📸 Screenshots](#-screenshots)
 - [🚀 Quick Start](#-quick-start)
 - [🐳 Docker Deployment](#-docker-deployment)
 - [🔌 API Reference](#-api-reference)
